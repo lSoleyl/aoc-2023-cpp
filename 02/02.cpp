@@ -26,6 +26,11 @@ struct Cubes {
 
   bool operator<(const Cubes& other) const { return r < other.r && g < other.g && b < other.b; }
   bool operator<=(const Cubes& other) const { return r <= other.r && g <= other.g && b <= other.b; }
+  Cubes max(const Cubes& other) const {
+    return Cubes(std::max(r, other.r), std::max(g, other.g), std::max(b, other.b));
+  }
+
+  int power() const { return r * b * g; }
 
   int r, g, b;
 };
@@ -54,13 +59,17 @@ int main()
   const Cubes LIMITS(12, 13, 14);
 
   int part1 = 0;
+  int part2 = 0;
   for (auto gameStr : stream::lines(std::ifstream("input.txt"))) {
     Game game(gameStr);
     if (std::ranges::all_of(game.cubes, [&](const Cubes& cubes) { return cubes <= LIMITS; })) {
       part1 += game.id;
     }
+
+    part2 += std::ranges::fold_left(game.cubes, Cubes(), [](const Cubes& a, const Cubes& b) { return a.max(b); }).power();
   }
 
-  std::cout << "Part 1: " << part1 << "\n";
+  std::cout << "Part 1: " << part1 << "\n"; // 2101
+  std::cout << "Part 2: " << part2 << "\n"; // 58269
   std::cout << t;
 }
