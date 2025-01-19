@@ -33,14 +33,12 @@ std::map<std::string, int> digitValue = {
 int main() {
   common::Time t;
 
-  std::ifstream input("input.txt");
-
   std::regex firstDigitRegex("([0-9]|one|two|three|four|five|six|seven|eight|nine)");
   std::regex lastDigitRegex(".*([0-9]|one|two|three|four|five|six|seven|eight|nine)");
   int calibrationValue = 0;
   int part2 = 0;
 
-  for (auto line : stream::lines(input)) {
+  for (auto line : stream::lines(std::ifstream("input.txt"))) {
     int digit1 = line[line.find_first_of("0123456789")] - 0x30;
     int digit2 = line[line.find_last_of("0123456789")] - 0x30;
     calibrationValue += digit1 * 10 + digit2;
