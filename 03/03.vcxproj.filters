@@ -26,8 +26,5 @@
     <Text Include="input.txt">
       <Filter>Ressourcendateien</Filter>
     </Text>
-    <Text Include="sample2.txt">
-      <Filter>Ressourcendateien</Filter>
-    </Text>
   </ItemGroup>
 </Project>
