@@ -16,8 +16,7 @@ std::regex numberRegex("[0-9]+");
 
 struct Card {
   Card(std::string line) {
-    std::smatch match;
-    std::regex_match(line, match, lineRegex);
+    auto match = regex::match(line, lineRegex);
     cardNumber = std::stoi(match[1].str());
 
     auto winningNumbers = regex::iter(std::string_view(match[2].first, match[2].second), numberRegex)
