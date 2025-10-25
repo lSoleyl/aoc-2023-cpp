@@ -161,66 +161,6 @@
     <ProjectReference Include="..\05\05.vcxproj">
       <Project>{d18b781f-e94b-47e1-8ee1-db99898b2b91}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\06\06.vcxproj">
-      <Project>{91b4402e-bf6f-4b9e-a4e4-084bf13704e7}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\07\07.vcxproj">
-      <Project>{b08710cb-3330-44fa-a3e4-d2d04ab2ad0e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\08\08.vcxproj">
-      <Project>{a0b1575b-8392-4073-8b21-825da75ca90c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\09\09.vcxproj">
-      <Project>{adb6e8c2-bb8c-4c0b-8458-5db57e90bac6}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\10\10.vcxproj">
-      <Project>{1a7caafe-560c-491e-b31e-3a52cec49fcd}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\11\11.vcxproj">
-      <Project>{90cbc570-af1a-4c92-93d3-ad45d7fedb6d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\12\12.vcxproj">
-      <Project>{7fdb7f64-7f84-4b40-966b-81a8d133d414}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\13\13.vcxproj">
-      <Project>{991ff356-131e-480a-b03a-284c40aa54ea}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\14\14.vcxproj">
-      <Project>{318b0a00-1a44-46b3-b99e-07576fb1c41b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\15\15.vcxproj">
-      <Project>{b2e8feae-da44-4e91-8e24-f9a6ef334aa4}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\16\16.vcxproj">
-      <Project>{e6a7a13b-f828-4142-aaae-a40203be5945}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\17\17.vcxproj">
-      <Project>{c26ff724-3007-4143-856d-41aa40e0eae5}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\18\18.vcxproj">
-      <Project>{e3c7ba59-b061-43b0-ac49-4ede844f68f7}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\19\19.vcxproj">
-      <Project>{974b9dd4-2e5e-4a04-900c-f4228e13f8f0}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\20\20.vcxproj">
-      <Project>{6b7e5330-ea1f-43f4-bfd7-5c5996a577fe}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\21\21.vcxproj">
-      <Project>{0022709c-a0a4-4e90-a832-855d3e8abe3d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\22\22.vcxproj">
-      <Project>{b4aa567d-959b-461f-a704-ed2dff827549}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\23\23.vcxproj">
-      <Project>{d8be9577-80df-4b7f-97cb-1154968bf340}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\24\24.vcxproj">
-      <Project>{ca279dfa-850e-40cd-9627-1878f7449aa7}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\25\25.vcxproj">
-      <Project>{a55b65fd-07e2-4591-9086-1419a3f0be39}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Text Include="results.txt" />
