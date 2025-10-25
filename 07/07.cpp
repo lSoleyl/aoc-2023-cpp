@@ -28,11 +28,18 @@ struct Hand {
   } strength;
 
 
-  Strength calcStrength() {
+  Strength calcStrength(bool maxStrength = false) {
     // To determine the hand, simply count occurrences:
     std::vector<std::pair<char, int>> occurrences;
 
+    int jokers = 0;
     for (auto card : cards) {
+      if (maxStrength && card == 'J') {
+        // Count jokers, but don't enter them jokers into occurrence map, we will redistribute them anyway
+        ++jokers;
+        continue; 
+      }
+
       auto pos = std::find_if(occurrences.begin(), occurrences.end(), [=](auto& entry) { return entry.first == card; });
       if (pos != occurrences.end()) {
         ++pos->second;
@@ -43,8 +50,13 @@ struct Hand {
 
     // Now sort by occurrences
     std::sort(occurrences.begin(), occurrences.end(), [](auto& a, auto& b) { return a.second > b.second; });
-    auto first = occurrences[0].second;
+    
+    auto first = occurrences.size() > 0 ? occurrences[0].second : 0;
     auto second = occurrences.size() > 1 ? occurrences[1].second : 0;
+
+    // always add the jokers to the highest number of occurences that way we maximize the strength of this hand
+    // In case we only had Jokers, we simply add 5 to 0 and still receive a FiveOfAKind
+    first += jokers;
 
     // Use the highest two occurrences to determine the hand strength
     switch (first) {
@@ -97,6 +109,8 @@ int main() {
   auto hands = readHands(task::input());
   std::sort(hands.begin(), hands.end());
 
+
+  // Part 1
   int64_t part1 = 0;
   int rank = 0;
   for (auto& hand : hands) {
@@ -104,8 +118,27 @@ int main() {
   }
 
 
+
+  // Part 2
   
-  int part2 = 0;
+  // Update strength according to new rules
+  for (auto& hand : hands) {
+    hand.strength = hand.calcStrength(true);
+  }
+
+  // Set new card order for sorting
+  cardOrder = { 'J', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'Q', 'K', 'A' };
+
+  // Sort again according to new hand strengths and card ordering
+  std::sort(hands.begin(), hands.end());
+
+
+  // Part 1
+  int64_t part2 = 0;
+  rank = 0;
+  for (auto& hand : hands) {
+    part2 += hand.bid * ++rank;
+  }
 
   std::cout << "Part 1: " << part1 << "\n";
   std::cout << "Part 2: " << part2 << "\n";

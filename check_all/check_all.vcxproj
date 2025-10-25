@@ -164,6 +164,9 @@
     <ProjectReference Include="..\06\06.vcxproj">
       <Project>{36228a82-c48a-4339-9ba0-40e9ce21602c}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\07\07.vcxproj">
+      <Project>{8aebd683-40fc-49c0-976d-8cba5708bcbe}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\data\results.txt" />
