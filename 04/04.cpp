@@ -10,6 +10,7 @@
 #include <common/time.hpp>
 #include <common/stream.hpp>
 #include <common/regex.hpp>
+#include <common/task.hpp>
 
 std::regex lineRegex("^Card +([0-9]+): (.*?)\\| (.*)$");
 std::regex numberRegex("[0-9]+");
@@ -50,7 +51,7 @@ int main()
   std::vector<Card> cards;
 
   // Part 1
-  for (auto line : stream::lines(std::ifstream("input.txt"))) {
+  for (auto line : stream::lines(task::input())) {
     cards.emplace_back(std::move(line));
     part1 += cards.back().value();
   }
@@ -73,7 +74,7 @@ int main()
   auto part2 = std::ranges::fold_left(cards | std::views::transform([](const Card& card) { return card.copiesForCard + 1; }), 0, std::plus{});
 
 
-  std::cout << "Part 1: " << part1 << "\n"; // 21213
-  std::cout << "Part 2: " << part2 << "\n"; // 8549735
+  std::cout << "Part 1: " << part1 << "\n";
+  std::cout << "Part 2: " << part2 << "\n";
   std::cout << t;
 }

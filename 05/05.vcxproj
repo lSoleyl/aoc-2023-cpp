@@ -146,8 +146,8 @@
     <ClCompile Include="05.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
-    <Text Include="sample.txt" />
+    <Text Include="..\data\05\input.txt" />
+    <Text Include="..\data\05\sample.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

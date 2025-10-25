@@ -8,6 +8,7 @@
 #include <common/time.hpp>
 #include <common/stream.hpp>
 #include <common/regex.hpp>
+#include <common/task.hpp>
 
 struct Range {
   Range(int64_t begin, int64_t end) : begin(begin), end(end) {}
@@ -252,11 +253,11 @@ int main()
 {
   common::Time t;
   
-  Almanac almanac(std::ifstream("input.txt"));
+  Almanac almanac(task::input());
   auto minLocation = almanac.minLocation();
   auto minRangeLocation = almanac.minLocationForRanges();
 
-  std::cout << "Part 1: " << minLocation << "\n"; // 650599855
-  std::cout << "Part 2: " << minRangeLocation << "\n"; // 1240035
+  std::cout << "Part 1: " << minLocation << "\n";
+  std::cout << "Part 2: " << minRangeLocation << "\n";
   std::cout << t;
 }

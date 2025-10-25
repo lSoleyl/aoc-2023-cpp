@@ -163,7 +163,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="results.txt" />
+    <Text Include="..\data\results.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

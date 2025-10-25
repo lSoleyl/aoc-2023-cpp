@@ -5,6 +5,7 @@
 
 #include <common/stream.hpp>
 #include <common/time.hpp>
+#include <common/task.hpp>
 
 std::map<std::string, int> digitValue = {
   { "0", 0 },
@@ -38,7 +39,7 @@ int main() {
   int calibrationValue = 0;
   int part2 = 0;
 
-  for (auto line : stream::lines(std::ifstream("input.txt"))) {
+  for (auto line : stream::lines(task::input())) {
     int digit1 = line[line.find_first_of("0123456789")] - 0x30;
     int digit2 = line[line.find_last_of("0123456789")] - 0x30;
     calibrationValue += digit1 * 10 + digit2;
@@ -54,7 +55,7 @@ int main() {
   }
   
 
-  std::cout << "Part 1: " << calibrationValue << "\n"; // 54644
-  std::cout << "Part 2: " << part2 << "\n"; // 53348
+  std::cout << "Part 1: " << calibrationValue << "\n";
+  std::cout << "Part 2: " << part2 << "\n";
   std::cout << t;
 }

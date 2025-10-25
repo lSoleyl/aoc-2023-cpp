@@ -3,6 +3,7 @@
 
 #include <common/time.hpp>
 #include <common/field.hpp>
+#include <common/task.hpp>
 
 struct Engine : public Field {
   Engine(std::istream&& source) : Field(source) {}
@@ -112,7 +113,7 @@ int main() {
   int part1 = 0;
   int part2 = 0;
 
-  Engine engine(std::ifstream("input.txt"));
+  Engine engine(task::input());
   for (auto row : engine.rows()) {
     bool hasSymbol = false;
     int currentNumber = 0;
@@ -153,7 +154,7 @@ int main() {
 
 
   
-  std::cout << "Part 1: " << part1 << "\n"; // 528819
-  std::cout << "Part 2: " << part2 << "\n"; // 80403602
+  std::cout << "Part 1: " << part1 << "\n";
+  std::cout << "Part 2: " << part2 << "\n";
   std::cout << t;
 }
