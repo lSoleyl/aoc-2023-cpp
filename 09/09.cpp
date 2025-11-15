@@ -30,12 +30,13 @@ std::vector<int> adjacentDifference(const std::vector<int>& numbers) {
   return difference;
 }
 
-int calculateNext(const std::vector<int>& numbers) {
+std::pair<int, int> calculatePreviousAndNext(const std::vector<int>& numbers) {
   auto difference = adjacentDifference(numbers);
   if (std::ranges::all_of(difference, [](int value) { return value == 0; })) {
-    return numbers.back(); // + 0
+    return std::make_pair(numbers.front(), numbers.back()); // + 0
   } else {
-    return numbers.back() + calculateNext(difference);
+    auto [previous, next] = calculatePreviousAndNext(difference);
+    return std::make_pair(numbers.front() - previous, numbers.back() + next);
   }
 }
 
@@ -46,14 +47,16 @@ int main() {
 
 
   int part1 = 0;
+  int part2 = 0;
 
   for (auto line : stream::lines(task::input())) {
     auto numbers = parseLine(line);
-    part1 += calculateNext(numbers);
+    auto [previous, next] = calculatePreviousAndNext(numbers);
+    part1 += next;
+    part2 += previous;
   }
 
-
-  int part2 = 0;
+  
   std::cout << "Part 1: " << part1 << "\n";
   std::cout << "Part 2: " << part2 << "\n";
   std::cout << t;
